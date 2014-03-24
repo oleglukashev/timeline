@@ -8,17 +8,21 @@ body {
   height: 100%;
 }
 
-#carcas div.background-paralax {
-  background: url(../images/background.jpg) no-repeat 0 center;
+div.background-paralax {
+  position: absolute;
+  left: -500px;
+  top: 0;
+  background: #000 url(../images/background.jpg) no-repeat 0 center;
+  width: 3000px;
+  height: 100%;
 }
 
 .time-line-block {
   min-width: 1000px;
-  margin: 0 100px;
+  margin: 0 180px;
   height: 600px;
   position: relative;
   top: 50%;
-  border: 1px solid #000;
 }
 
 div.time-line-part {
@@ -36,6 +40,7 @@ div.time-line-part div.year {
 }
 
 div.time-line-part div.msg-block {
+  display: none;
   position: absolute;
   height: 140px;
   width: 340px;
@@ -76,29 +81,36 @@ div.points-list {
 }
 
 div.points-list div.point {
-  background-color: #8f9290;
-  position: absolute; 
-  z-index: 1;
-  display: -moz-inline-stack;
-  display: inline-block;
-  vertical-align: top;
-  zoom: 1;
-  *display: inline;
+  position: absolute;
 }
 
 div.points-list div.point.small-point {
   width: 7px;
   height: 7px;
   top: -3px;
+}
+
+div.points-list div.point.small-point div.point-point {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 0;
+  z-index: 1;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
+  background-color: #fff;
 }
 
 div.points-list div.point.small-point div.point-border {
   position: absolute;
-  left: 3px;
-  top: 3px;
+  left: 4px;
+  top: 4px;
   width: 0;
   height: 0;
   border: 1px solid #8f9290;
@@ -107,16 +119,24 @@ div.points-list div.point.small-point div.point-border {
   border-radius: 0;
 }
 
-div.points-list div.point.small-point:hover {
-  border-color: #ffcb00;
+div.points-list div.small-point:hover {
+  z-index: 10;
+}
+
+div.points-list div.small-point:hover div.point-point {
   background-color: #ffcb00;
 }
 
-div.points-list div.point.small-point:hover div.point-border {
+
+div.points-list div.small-point:hover div.point-border {
   border-color: #ffcb00;
 }
 
-div.points-list div.point:first-child {
+
+
+
+
+div.points-list div.point.big-point {
   width: 60px;
   height: 60px;
   border: 1px solid #8f9290;
@@ -128,6 +148,12 @@ div.points-list div.point:first-child {
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
+}
+
+div.points-list div.point.big-point:hover {
+  background-color: #ffcb00;
+  color: #000;
+  border-color: #000;
 }
 
 div.points-list div.point p.point-date {
@@ -145,6 +171,14 @@ div.points-list div.point p.point-month {
   text-transform: uppercase;
 }
 
+div.points-list div.point.big-point:hover p.point-month {
+  color: #ffcb00;
+}
+
+div.points-list div.point p {
+  cursor: default;
+}
+
 div.points-list div.points-list-line {
   height: 1px;
   background-color: #8f9290;
@@ -156,6 +190,20 @@ div.points-list div.points-list-line {
 div.points-list div.point div.point-msg {
   display: none;
 }
+
+div.points-list div.point div.point-msg-corner {
+  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -12px;
+  top: -47px;
+  opacity: 0.8;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #000;
+}
+
 
 
 
@@ -171,15 +219,6 @@ div.points-list div.point div.point-msg {
   animation-fill-mode: both;
 }
 
-.animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-}
-
-.animated.hinge {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
-}
 
 
 @-webkit-keyframes pulse {
@@ -187,47 +226,20 @@ div.points-list div.point div.point-msg {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    width: 7px;
-    height: 7px;
-    top: -3px;
-    margin-left: 0
+    width: 8px;
+    height: 8px;
+    top: 0;
+    margin-left: 0;
   }
 
   100% {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    width: 11px;
-    height: 11px;
-    top: -5px;
+    width: 12px;
+    height: 12px;
+    top: -2px;
     margin-left: -2px; 
-  }
-}
-
-@-webkit-keyframes border_pulse {
-  0% {
-    left: 3px;
-    top: 3px;
-    width: 0;
-    height: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-  }
-
-  90% {
-    left: -6px;
-    top: -6px;
-    width: 21px;
-    height: 21px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    border-radius: 12px;
-  }
-
-  100% {
-    opacity: 0.1;
-    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=10);
   }
 }
 
@@ -236,9 +248,9 @@ div.points-list div.point div.point-msg {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-    width: 7px;
-    height: 7px;
-    top: -3px;
+    width: 8px;
+    height: 8px;
+    top: 0;
     margin-left: 0
   }
 
@@ -246,19 +258,44 @@ div.points-list div.point div.point-msg {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    width: 11px;
-    height: 11px;
-    top: -5px;
-    margin-left: -2px; 
+    width: 13px;
+    height: 13px;
+    top: -6px;
+    margin-left: -3px; 
   }
 }
 
-div.small-point.pulse {
+@-webkit-keyframes border_pulse {
+  0% {
+    left: 4px;
+    top: 4px;
+    width: 0;
+    height: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
+  100% {
+    left: -11px;
+    top: -11px;
+    width: 28px;
+    height: 28px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+  }
+
+
+
+}
+
+div.small-point div.point-point.pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
 
-div.small-point.pulse div.point-border {
+div.small-point div.point-border.border_pulse {
   -webkit-animation-name: border_pulse;
   animation-name: border_pulse;
 }

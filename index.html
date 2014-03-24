@@ -9,196 +9,14 @@
     <link href="css/styles.css" media="screen" rel="stylesheet" />
     <link href="css/jcarousel.css" media="screen" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans' rel='stylesheet' type='text/css'>
-    <script src="js/jquery-1.11.min.js" style="text/javascript"></script>
-    <script src="js/underscore.js" style="text/javascript"></script>
-    <script src="js/jquery.jcarousel.min.js" style="text/javascript"></script>
-    <script src="js/main.js" style="text/javascript"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-        $(document).on('mouseenter', 'div.small-point', function() {
-          $(this).addClass('animated pulse')
-            .find('div.point-border').addClass('animated border_pulse');
-        });
-
-        $(document).on('mouseleave', 'div.small-point', function() {
-          $(this).removeClass('animated pulse')
-            .find('div.point-border').removeClass('animated border_pulse');
-        });
-
-        (function($) {
-          $(function() {
-              var data = {
-                "1382043600":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...",
-                "1382119200":"Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean...",
-                "1382086800":"A small river named Duden flows by their place and supplies it with the necessary regelialia...",
-                "1382065200":"It is a paradisematic country, in which roasted parts of sentences fly into your mouth...",
-                "1382119200":"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar...",
-                "1382090400":"The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didnвЂ™t listen...",
-                "1382065200":"She packed her seven versalia, put her initial into the belt and made herself on the way...",
-                "1382065200":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane...",
-                "1383955200":"Pityful a rethoric question ran over her cheek, then she continued her way...",
-                "1384016400":"On her way she met a copy...",
-                "1383966000":"The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word ...",
-                "1383998400":"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar...",
-                "1383980400":"The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didnвЂ™t listen...",
-                "1383998400":"She packed her seven versalia, put her initial into the belt and made herself on the way...",
-                "1383940800":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane...",
-                "1383948000":"Pityful a rethoric question ran over her cheek, then she continued her way...",
-                "1383948000":"On her way she met a copy...",
-                "1383944400":"The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word and and the Little Blind Text should turn around and return to its own, safe country...",
-                "1383984000":"But nothing the copy said could convince her and so it didnвЂ™t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their projects again and again...",
-                "1383940800":"And if she hasnвЂ™t been rewritten, then they are still using her...",
-                "1383944400":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts...",
-                "1383984000":"Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean...",
-                "1384009200":"A small river named Duden flows by their place and supplies it with the necessary regelialia...",
-                "1387054800":"It is a paradisematic country, in which roasted parts of sentences fly into your mouth...",
-                "1387101600":"Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar...",
-                "1387105200":"The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didnвЂ™t listen...",
-                "1387126800":"She packed her seven versalia, put her initial into the belt and made herself on the way...",
-                "1387051200":"When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane...",
-                "1387116000":"Pityful a rethoric question ran over her cheek, then she continued her way...",
-                "1387130400":"On her way she met a copy..."
-              }
-
-
-              var jcarousel = $('.jcarousel');
-
-              jcarousel.on('jcarousel:reload jcarousel:create', function () {
-                  var width_size_block = 400;
-                  var width_last_size_block = 100;
-                  var width_carousel_block = $('div.time-line-block').innerWidth();
-                  var count_full_blocks = Math.floor((width_carousel_block - width_last_size_block) / width_size_block);
-                  
-                  $('div.jcarousel-wrapper')
-                    .css('width', (count_full_blocks * width_size_block) + width_last_size_block + "px");
-                  jcarousel.jcarousel('items')
-                    .css('width', width_size_block + 'px');
-              })
-              .jcarousel({
-                  //wrap: 'circular'
-              });
-
-              $('.jcarousel-control-prev')
-                .on('jcarouselcontrol:active', function() {
-                  $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                  $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                  target: '-=1'
-                });
-
-              $('.jcarousel-control-next')
-                .on('jcarouselcontrol:active', function() {
-                  $(this).removeClass('inactive');
-                })
-                .on('jcarouselcontrol:inactive', function() {
-                  $(this).addClass('inactive');
-                })
-                .jcarouselControl({
-                    target: '+=1'
-                });
-
-                $('.jcarousel').on('jcarousel:animateend', function(event, carousel, target, animate) {
-                  if (lastItemIsVisible()) {
-                    $('.jcarousel-control-next')
-                      .addClass('inactive')
-                      .jcarouselControl({  target: '-=0' });
-                  } else {
-                    $('.jcarousel-control-next')
-                      .removeClass('inactive')
-                      .jcarouselControl({  target: '+=1' });
-                  }
-                });
-          });
-        })(jQuery);
-      });
-
-      function trigger(carousel, state) {
-        console.log(carousel.first)
-      }
-
-      function lastItemIsVisible() {
-        var last_item = $('.jcarousel').jcarousel('items').last().get(0);
-        var result = false
-
-        _.map($('.jcarousel').jcarousel('visible'), function(item) {
-          if (item === last_item) {
-            result = true;
-          }
-        });
-
-        return result;
-      }
-
-      function buildTimeLine() {
-
-      }
-    </script>
   </head>
   <body>
     <div id="carcas">
-      <div class="background-paralax">
-      </div>
+      <div class="background-paralax"></div>
       <div class="time-line-block">
         <div class="jcarousel-wrapper">
           <div class="jcarousel">
             <ul>
-              <li>
-                <div class="time-line-part">
-                  <div class="year">2013</div>
-                  <div class="msg-block">
-                    <div></div>
-                    <div class="msg-block-text">JSONP is a simple way to overcome browser restrictions when sending JSON responses from different domains from the client. But the practical implementation of the approach involves subtle differences that are often not explained clearly.</div>
-                  </div>
-                  <div class="points-list">
-                    <div class="point">
-                      <p class="point-date">18</p>
-                      <p class="point-month">Сентябрь</p>
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                    <div class="point small-point" style="left:0;">
-                      <div class="point-border"></div>
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                    <div class="point small-point" style="left:10px;">
-                      <div class="point-border"></div>
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                    <div class="point small-point" style="left:45px;">
-                      <div class="point-border"></div>
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                    <div class="point small-point" style="left:87px;">
-                      <div class="point-border"></div>
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                    <div class="point small-point" style="left:300px;">
-                      <div class="point-msg">
-                        Blf blf vlf
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
         </div>
@@ -206,5 +24,10 @@
         <a href="#" class="jcarousel-control-next">&rsaquo;</a>
       </div>
     </div>
+    <script src="js/jquery-1.11.min.js" style="text/javascript"></script>
+    <script src="js/underscore.js" style="text/javascript"></script>
+    <script src="js/jquery.jcarousel.min.js" style="text/javascript"></script>
+    <script src="js/main.js" style="text/javascript"></script>
+    <script src="js/events.js" style="text/javascript"></script>
   </body>
 </html>
