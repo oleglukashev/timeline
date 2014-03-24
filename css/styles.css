@@ -119,10 +119,6 @@ div.points-list div.point.small-point div.point-border {
   border-radius: 0;
 }
 
-div.points-list div.small-point:hover {
-  z-index: 10;
-}
-
 div.points-list div.small-point:hover div.point-point {
   background-color: #ffcb00;
 }

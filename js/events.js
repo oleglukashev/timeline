@@ -101,10 +101,7 @@ function resizeWindow() {
 }
 
 function goParalax(target) {
-  console.log(target)
   $('div.background-paralax').animate({
     left: (target === "+=1") ? "+=100" : "-=100",
-  }, 400, function() {
-    // Animation complete.
-  });
+  }, 400, function() {});
 }
