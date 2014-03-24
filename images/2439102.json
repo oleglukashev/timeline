@@ -1,0 +1,194 @@
+{
+  "url": "https://api.github.com/gists/2439102",
+  "forks_url": "https://api.github.com/gists/2439102/forks",
+  "commits_url": "https://api.github.com/gists/2439102/commits",
+  "id": "2439102",
+  "git_pull_url": "https://gist.github.com/2439102.git",
+  "git_push_url": "https://gist.github.com/2439102.git",
+  "html_url": "https://gist.github.com/2439102",
+  "files": {
+    "meemoo_kinect_motion_loop.json": {
+      "filename": "meemoo_kinect_motion_loop.json",
+      "type": "application/json",
+      "language": "JSON",
+      "raw_url": "https://gist.githubusercontent.com/forresto/2439102/raw/9d6b324f0ecaba2100fb4dfc154aad87d2d99929/meemoo_kinect_motion_loop.json",
+      "size": 3576,
+      "content": "{\n  \"info\": {\n    \"title\": \"Meemoo Kinect Motion Looper\",\n    \"author\": \"forresto\",\n    \"description\": \"meemoo to alpha threshold to lighten blend mode loop\",\n    \"url\": \"https://gist.github.com/2439102\"\n  },\n  \"nodes\": [\n    {\n      \"src\": \"http://forresto.github.com/meemoo-camcanvas/onionskin.html\",\n      \"x\": 201,\n      \"y\": 237,\n      \"z\": 0,\n      \"w\": 343,\n      \"h\": 280,\n      \"state\": {\n        \"quality\": 75,\n        \"width\": 320,\n        \"height\": 240\n      },\n      \"id\": 1\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-blend/blend.html\",\n      \"x\": 885,\n      \"y\": 61,\n      \"z\": 0,\n      \"w\": 320,\n      \"h\": 295,\n      \"state\": {\n        \"mode\": \"lighten\"\n      },\n      \"id\": 3\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-modules/metronome.html\",\n      \"x\": 113,\n      \"y\": 80,\n      \"z\": 0,\n      \"w\": 122,\n      \"h\": 107,\n      \"state\": {\n        \"ms\": 50\n      },\n      \"id\": 5\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-modules/delay.html\",\n      \"x\": 717,\n      \"y\": 416,\n      \"z\": 0,\n      \"w\": 63,\n      \"h\": 69,\n      \"state\": {\n        \"delay\": 5\n      },\n      \"id\": 4\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-modules/canvasarray.html\",\n      \"x\": 1392,\n      \"y\": 87,\n      \"z\": 0,\n      \"w\": 536,\n      \"h\": 536,\n      \"state\": {\n        \"mode\": \"normal\",\n        \"delay\": 200\n      },\n      \"id\": 6\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-canvas2gif/canvas2gif.html\",\n      \"x\": 2070,\n      \"y\": 88,\n      \"z\": 0,\n      \"w\": 385,\n      \"h\": 257,\n      \"state\": {\n        \"delay\": \"100\",\n        \"quality\": 75,\n        \"matte\": \"#FFFFFF\"\n      },\n      \"id\": 7\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-modules/imgur.html\",\n      \"x\": 2219,\n      \"y\": 425,\n      \"z\": 0,\n      \"w\": 367,\n      \"h\": 330,\n      \"state\": {\n        \"title\": \"meemoo image share\",\n        \"caption\": \"http://www.reddit.com/r/meemoo/comments/pbuor/new_module_image_blend_mode/\"\n      },\n      \"id\": 8\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-image/threshold.html\",\n      \"x\": 396,\n      \"y\": 603,\n      \"z\": 0,\n      \"w\": 368,\n      \"h\": 259,\n      \"state\": {\n        \"threshold\": 120\n      },\n      \"id\": 9\n    },\n    {\n      \"src\": \"http://forresto.github.com/meemoo-image/mask.html\",\n      \"x\": 915,\n      \"y\": 576,\n      \"z\": 0,\n      \"w\": 346,\n      \"h\": 278,\n      \"state\": {\n        \"invert\": \"false\"\n      },\n      \"id\": 11\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": [\n        5,\n        \"beat\"\n      ],\n      \"target\": [\n        1,\n        \"capture\"\n      ]\n    },\n    {\n      \"source\": [\n        3,\n        \"image\"\n      ],\n      \"target\": [\n        4,\n        \"in\"\n      ]\n    },\n    {\n      \"source\": [\n        4,\n        \"out\"\n      ],\n      \"target\": [\n        3,\n        \"under\"\n      ]\n    },\n    {\n      \"source\": [\n        6,\n        \"image\"\n      ],\n      \"target\": [\n        7,\n        \"image\"\n      ]\n    },\n    {\n      \"source\": [\n        7,\n        \"gif\"\n      ],\n      \"target\": [\n        8,\n        \"dataurl\"\n      ]\n    },\n    {\n      \"source\": [\n        1,\n        \"image\"\n      ],\n      \"target\": [\n        9,\n        \"image\"\n      ]\n    },\n    {\n      \"source\": [\n        9,\n        \"image\"\n      ],\n      \"target\": [\n        11,\n        \"alpha\"\n      ]\n    },\n    {\n      \"source\": [\n        1,\n        \"image\"\n      ],\n      \"target\": [\n        11,\n        \"color\"\n      ]\n    },\n    {\n      \"source\": [\n        11,\n        \"image\"\n      ],\n      \"target\": [\n        3,\n        \"over\"\n      ]\n    }\n  ]\n}"
+    }
+  },
+  "public": true,
+  "created_at": "2012-04-21T18:55:15Z",
+  "updated_at": "2012-04-21T19:09:33Z",
+  "description": "Meemoo Kinect Motion Looper -- Output: http://i.imgur.com/5SZ5r.gif",
+  "comments": 0,
+  "user": {
+    "login": "forresto",
+    "id": 395307,
+    "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+    "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+    "url": "https://api.github.com/users/forresto",
+    "html_url": "https://github.com/forresto",
+    "followers_url": "https://api.github.com/users/forresto/followers",
+    "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+    "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+    "organizations_url": "https://api.github.com/users/forresto/orgs",
+    "repos_url": "https://api.github.com/users/forresto/repos",
+    "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/forresto/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "comments_url": "https://api.github.com/gists/2439102/comments",
+  "forks": [
+
+  ],
+  "history": [
+    {
+      "user": {
+        "login": "forresto",
+        "id": 395307,
+        "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+        "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+        "url": "https://api.github.com/users/forresto",
+        "html_url": "https://github.com/forresto",
+        "followers_url": "https://api.github.com/users/forresto/followers",
+        "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+        "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+        "organizations_url": "https://api.github.com/users/forresto/orgs",
+        "repos_url": "https://api.github.com/users/forresto/repos",
+        "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/forresto/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "08ae58ebc7d3705c8ea553ffee64a997d06adc5e",
+      "committed_at": "2012-04-22T12:32:08Z",
+      "change_status": {
+        "total": 4,
+        "additions": 2,
+        "deletions": 2
+      },
+      "url": "https://api.github.com/gists/2439102/08ae58ebc7d3705c8ea553ffee64a997d06adc5e"
+    },
+    {
+      "user": {
+        "login": "forresto",
+        "id": 395307,
+        "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+        "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+        "url": "https://api.github.com/users/forresto",
+        "html_url": "https://github.com/forresto",
+        "followers_url": "https://api.github.com/users/forresto/followers",
+        "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+        "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+        "organizations_url": "https://api.github.com/users/forresto/orgs",
+        "repos_url": "https://api.github.com/users/forresto/repos",
+        "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/forresto/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "3e826cc2131a3cb5e1122aa76b9c89e752757dfd",
+      "committed_at": "2012-04-22T12:31:31Z",
+      "change_status": {
+        "total": 2,
+        "additions": 1,
+        "deletions": 1
+      },
+      "url": "https://api.github.com/gists/2439102/3e826cc2131a3cb5e1122aa76b9c89e752757dfd"
+    },
+    {
+      "user": {
+        "login": "forresto",
+        "id": 395307,
+        "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+        "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+        "url": "https://api.github.com/users/forresto",
+        "html_url": "https://github.com/forresto",
+        "followers_url": "https://api.github.com/users/forresto/followers",
+        "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+        "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+        "organizations_url": "https://api.github.com/users/forresto/orgs",
+        "repos_url": "https://api.github.com/users/forresto/repos",
+        "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/forresto/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "bca569f24f46f840b7485ffccad90e3e10d4b425",
+      "committed_at": "2012-04-22T12:25:07Z",
+      "change_status": {
+        "total": 80,
+        "additions": 19,
+        "deletions": 61
+      },
+      "url": "https://api.github.com/gists/2439102/bca569f24f46f840b7485ffccad90e3e10d4b425"
+    },
+    {
+      "user": {
+        "login": "forresto",
+        "id": 395307,
+        "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+        "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+        "url": "https://api.github.com/users/forresto",
+        "html_url": "https://github.com/forresto",
+        "followers_url": "https://api.github.com/users/forresto/followers",
+        "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+        "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+        "organizations_url": "https://api.github.com/users/forresto/orgs",
+        "repos_url": "https://api.github.com/users/forresto/repos",
+        "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/forresto/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "e2d52805bf7070ab1acc6b9ab645464ee75af19d",
+      "committed_at": "2012-04-21T19:17:15Z",
+      "change_status": {
+        "total": 4,
+        "additions": 2,
+        "deletions": 2
+      },
+      "url": "https://api.github.com/gists/2439102/e2d52805bf7070ab1acc6b9ab645464ee75af19d"
+    },
+    {
+      "user": {
+        "login": "forresto",
+        "id": 395307,
+        "avatar_url": "https://avatars.githubusercontent.com/u/395307?",
+        "gravatar_id": "4f084531176322b8d3fdfa1dc1ff01b7",
+        "url": "https://api.github.com/users/forresto",
+        "html_url": "https://github.com/forresto",
+        "followers_url": "https://api.github.com/users/forresto/followers",
+        "following_url": "https://api.github.com/users/forresto/following{/other_user}",
+        "gists_url": "https://api.github.com/users/forresto/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/forresto/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/forresto/subscriptions",
+        "organizations_url": "https://api.github.com/users/forresto/orgs",
+        "repos_url": "https://api.github.com/users/forresto/repos",
+        "events_url": "https://api.github.com/users/forresto/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/forresto/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      "version": "005be9c2d24160656296a8f5f58084b22a61f0a2",
+      "committed_at": "2012-04-21T18:55:15Z",
+      "change_status": {
+        "total": 258,
+        "additions": 258,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/2439102/005be9c2d24160656296a8f5f58084b22a61f0a2"
+    }
+  ]
+}
