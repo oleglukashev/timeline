@@ -35,6 +35,11 @@ $(document).ready(function() {
       .css('width', (count_full_blocks * width_size_block) + width_last_size_block + "px");
     jcarousel.jcarousel('items')
       .css('width', width_size_block + 'px');
+
+    /* hach for last item */
+    if (lastItemIsVisible()) {
+      jcarousel.jcarousel('scroll', 1);
+    }
   })
   .jcarousel();
 

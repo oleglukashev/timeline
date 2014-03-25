@@ -1,6 +1,8 @@
 body {
+  overflow: hidden;
   font-family: 'Quattrocento Sans', sans-serif;
   color: #8f9290;
+  background-color: #000;
 }
 
 #carcas {
@@ -37,6 +39,10 @@ div.time-line-part div.year {
   top: 0;
   font-size: 60px;
   line-height: 60px;
+}
+
+div.time-line-part div.year.now {
+  color: #fff;
 }
 
 div.time-line-part div.msg-block {
@@ -107,6 +113,7 @@ div.points-list div.point.small-point div.point-point {
   background-color: #fff;
 }
 
+
 div.points-list div.point.small-point div.point-border {
   position: absolute;
   left: 4px;
@@ -119,7 +126,8 @@ div.points-list div.point.small-point div.point-border {
   border-radius: 0;
 }
 
-div.points-list div.small-point:hover div.point-point {
+div.points-list div.small-point:hover div.point-point,
+li.penult div.points-list div.point.small-point div.point-point {
   background-color: #ffcb00;
 }
 
@@ -146,10 +154,10 @@ div.points-list div.point.big-point {
   border-radius: 30px;
 }
 
-div.points-list div.point.big-point:hover {
-  background-color: #ffcb00;
-  color: #000;
-  border-color: #000;
+div.points-list div.point.big-point:hover,
+li.last div.points-list div.point.big-point {
+  color: #ffcb00;
+  border-color: #ffcb00;
 }
 
 div.points-list div.point p.point-date {
@@ -209,13 +217,55 @@ div.points-list div.point div.point-msg-corner {
 
 /* animation */
 .animated {
-  -webkit-animation-duration: 0.2s;
-  animation-duration: 0.2s;
+  -webkit-animation-duration: 0.1s;
+  animation-duration: 0.1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
+@keyframes border_pulse {
+  0% {
+    left: 4px;
+    top: 4px;
+    width: 0;
+    height: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
 
+  100% {
+    left: -11px;
+    top: -11px;
+    width: 28px;
+    height: 28px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+  }
+}
+
+@-webkit-keyframes border_pulse {
+  0% {
+    left: 4px;
+    top: 4px;
+    width: 0;
+    height: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+  }
+
+  100% {
+    left: -11px;
+    top: -11px;
+    width: 28px;
+    height: 28px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+  }
+}
 
 @-webkit-keyframes pulse {
   0% {
@@ -247,44 +297,21 @@ div.points-list div.point div.point-msg-corner {
     width: 8px;
     height: 8px;
     top: 0;
-    margin-left: 0
+    margin-left: 0;
   }
 
   100% {
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
-    width: 13px;
-    height: 13px;
-    top: -6px;
-    margin-left: -3px; 
+    width: 12px;
+    height: 12px;
+    top: -2px;
+    margin-left: -2px; 
   }
 }
 
-@-webkit-keyframes border_pulse {
-  0% {
-    left: 4px;
-    top: 4px;
-    width: 0;
-    height: 0;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-  }
 
-  100% {
-    left: -11px;
-    top: -11px;
-    width: 28px;
-    height: 28px;
-    -webkit-border-radius: 14px;
-    -moz-border-radius: 14px;
-    border-radius: 14px;
-  }
-
-
-
-}
 
 div.small-point div.point-point.pulse {
   -webkit-animation-name: pulse;

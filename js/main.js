@@ -91,37 +91,43 @@ Timeline.prototype.run = function() {
       text: that.data[item]
     };
 
-    if (that.getNextBigPoint() &&
-      that.matchPostItems(current_item, that.getNextBigPoint())) {
-        that.setBigPoint(false);
+    if (that.getNextBigPoint() && that.timeIsSame(current_item, that.getNextBigPoint())) {
+      that.setBigPoint(false);
     }
 
     if (!that.getBigPoint()) {
-      that.setBigPoint(current_item.date);
-      that.buildBigPoint(that.getBigPoint());
-      that.current_year = that.getBigPoint().getFullYear();
+      that.createBigPoint(current_item.date)
 
       var next_day = that.findNextDayByBigPoint(that.getBigPoint())
-      that.setNextBigPoint(new Date(next_day*1000));
-
-      that.current_li = $('div.jcarousel ul li').last();
+      that.setNextBigPoint(new Date(next_day*1000));  
     }
 
     that.buildSmallPoint(current_item);
 
   });
 
+
   /* create last today big point */
-  that.setBigPoint(new Date(that.getNextBigPoint()));
-  that.buildBigPoint(new Date(that.getNextBigPoint()));
+  that.createBigPoint(new Date(that.getNextBigPoint()));
+  
+  that.current_li
+    .addClass('last')
+    .prev().addClass('penult')
 }
 
 
-Timeline.prototype.matchPostItems = function(first_item, second_item) {
-  if (first_item.date.getTime() === second_item.getTime()) {
-    return true
-  }
-  return false;
+Timeline.prototype.createBigPoint = function(big_point) {
+  var that = this;
+  that.setBigPoint(big_point);
+  that.buildBigPoint(that.getBigPoint());
+      
+  that.current_year = that.getBigPoint().getFullYear();
+  that.current_li = $('div.jcarousel ul li').last();
+} 
+
+
+Timeline.prototype.timeIsSame = function(first_item, second_item) {
+  return (first_item.date.getTime() === second_item.getTime());
 }
 
 
@@ -129,7 +135,8 @@ Timeline.prototype.buildBigPoint = function(big_point) {
   var that = this;
   $('div.jcarousel ul').append('<li>' +
     '<div class="time-line-part">' +
-      '<div class="year">' + (that.current_year != that.getBigPoint().getFullYear() ? that.getBigPoint().getFullYear() : "") + '</div>' + 
+      '<div class="year ' + (that.isNowYear(that.getBigPoint().getFullYear()) ? "now" : "") +
+        '">' + that.getYearIfHeChanged(that.getBigPoint().getFullYear()) + '</div>' + 
       '<div class="msg-block"><div></div>' +
         '<div class="msg-block-text"></div>' +
       '</div>' +
@@ -218,6 +225,20 @@ Timeline.prototype.getLeftPositionForPoint = function(small_point) {
   var different_coeff = (differ_lst_time_currdat_millsec / differ_lst_time_bd_millsec) * 100;
 
   return this.day_block_line_width / 100 * different_coeff;
+}
+
+Timeline.prototype.isNowYear = function(year) {
+  var now = new Date();
+  return (year === now.getFullYear());
+}
+
+Timeline.prototype.getYearIfHeChanged = function(year) {
+  var that = this;
+  if (that.current_year != that.getBigPoint().getFullYear()) {
+    return that.getBigPoint().getFullYear();
+  } else {
+    return "";
+  }
 }
 
 
